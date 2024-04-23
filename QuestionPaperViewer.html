@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Image with Zoom Buttons</title>
+<style>
+    /* body{
+        background-image: url(backgroundimage.jpeg);
+        background-repeat: no-repeat;
+        background-size:100%;
+    } */
+    .container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+    }
+    .image {
+        width: 100%;
+        height: auto;
+        cursor: grab;
+    }
+    .zoom-btn-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+        padding: 5px;
+        display: flex;
+        gap: 10px;
+    }
+    .zoom-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .zoom-btn:hover {
+        background-color: #45a049;
+    }
+    .print-btn {
+        background-color: #008CBA;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .print-btn:hover {
+        background-color: #005f6b;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img class="image" src="" alt="Question Paper" id="zoomImage">
+    <div class="zoom-btn-container">
+        <button class="zoom-btn" onclick="zoomIn()">+</button>
+        <button class="zoom-btn" onclick="zoomOut()">-</button>
+        <button class="zoom-btn" onclick="resetZoom()">Reset</button>
+        <button class="zoom-btn" onclick="rotateLeft()">&#x21BA;</button>
+        <button class="zoom-btn" onclick="rotateRight()">&#x21BB;</button>
+        <button class="print-btn" onclick="printImage()">Print</button>
+    </div>
+</div>
+
+<script>
+var zoomedImage = document.getElementById('zoomImage');
+var scale = 1;
+var rotation = 0;
+
+function zoomIn() {
+    scale += 0.1;
+    zoomedImage.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+}
+
+function zoomOut() {
+    scale -= 0.1;
+    zoomedImage.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+}
+
+function resetZoom() {
+    scale = 1;
+    zoomedImage.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+}
+
+function rotateLeft() {
+    rotation -= 90;
+    zoomedImage.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+}
+
+function rotateRight() {
+    rotation += 90;
+    zoomedImage.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+}
+
+function printImage() {
+    window.print();
+}
+
+function changeImage(imageUrl) {
+    zoomedImage.src = imageUrl;
+}
+var queryParams = new URLSearchParams(window.location.search);
+var selectedDescription = queryParams.get('subject');
+
+var imageUrls = {
+    'Engineering Physics': 'Engineering_physics.jpeg',
+    'BEEE': 'BEEE.jpeg',
+    'Calculus' : 'Calculus.jpeg',
+    'Computer Architecture and Organization':'cao.jpeg',
+    'Complex Variables and Linear Algebra':'complex.jpeg',
+    'Design and Analysis of Algorithms':'DAA.jpeg',
+    'Differential Equations and Transforms':'Differential_equation.jpeg',
+    'Discrete Mathematics and Graph Theory':'discrete.jpeg',
+    'Data Structures and Algorithms':'DSA.jpeg',
+    'Embedded Systems':'Embedded_Systems.jpeg',
+    'Engineering Chemistry':'Engineering_chemistry.jpeg',
+    'Macro Economics': 'Macro_eco.jpeg',
+    'Micro Economics': 'micro.jpeg',
+    'Microprocessors and Microcontrollers': 'microprocessors.png',
+    'Probability and Statistics':'prob.png',
+    'Software Engineering': 'software.jpeg',
+    'Technical English Communication': 'Technical_english.jpeg'
+};
+
+if (selectedDescription) {
+    var selectedImageUrl = imageUrls[selectedDescription];
+    if (selectedImageUrl) {
+        changeImage(selectedImageUrl);
+    } else {
+        console.error('Image URL not found for the provided description:', selectedDescription);
+    }
+} else {
+    console.error('Description not provided!');
+}
+</script>
+
+</body>
+</html>

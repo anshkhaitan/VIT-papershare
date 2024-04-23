@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calcuklator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    outline: none;
+}
+
+/* Error message */
+#error {
+    position: absolute;
+    top: 4%;
+    left: 21%;
+    border: none;
+    height: 20px;
+    text-align: center;
+    font-size: .75rem;
+    color: red;
+    font-weight: bold;
+}
+
+
+.gpa {
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.inputField {
+    display: flex;
+    gap: 30px;
+}
+
+.input {
+    padding: 8px;
+    font-weight: bold;
+    font-size: .8rem;
+    border: 1px solid #4CAF50;
+    border-radius: 15px;
+    width: 50vh;
+    height: 5vh;
+}
+
+.Enterbutton {
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    width: 15vh;
+    height: 7vh;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.Enterbutton:hover {
+    background-color: #45a049;
+}
+
+/* Subject section */
+#subjectSection {
+    margin-top: 50px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.subjects {
+    display: flex;
+    gap: 40%;
+    width: 100%;
+}
+
+.subjectsdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gradesinput {
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+    margin-top: 15px;
+}
+
+#gpacalculated {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.75rem;
+}
+h1{
+  text-align: center;
+  margin-top: 60px;
+        margin-bottom: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a id="logo1" href="index.html"><img src="logo.png"> &nbsp;VIT PaperShare</a>
+        <a href="Questionpaper.html">Question Paper</a>
+      </div>
+      <h1>
+        GPA Calculator
+      </h1>
+      <div class="gpa">
+        <div id="error"></div>
+        <div class="inputField">
+            <input type="text" class="input" id="semesterno" placeholder="Enter your semester number">
+            <input type="text" class="input" id="Noofsubjects" placeholder="Enter Total Subjects in Semesters">
+            <button class="Enterbutton" id="enterbutton">Enter</button>
+        </div>
+    </div>
+    <div id="subjectSection">
+
+        <div class="subjects">
+            <h3 id="SemesterNo">Semester No:</h3>
+            <h3 id="totalsubjects">Total Subjects:</h3>
+        </div>
+        
+        <div class="subjectsdiv" id="subjects">
+
+        </div>
+    
+    </div>
+        <div id="gpacalculated">
+        </div>
+
+<script>
+let semesterinput = document.getElementById("semesterno");
+let subjectsinput = document.getElementById("Noofsubjects");
+let subjectsdiv = document.getElementById("subjects");
+let enterbutton = document.getElementById("enterbutton");
+let SemesterNo = document.getElementById("SemesterNo");
+let subjects = document.getElementById("totalsubjects");
+let gpacalculated = document.getElementById("gpacalculated")
+let error = document.getElementById("error")
+let gradebutton = document.createElement("button");
+
+function setAttributes(el, attrs) {
+  for (var key in attrs) {
+    el.setAttribute(key, attrs[key]);
+  }
+};
+
+function validate(inputs) {
+  let flag;
+  if (inputs.value == "") {
+    inputs.style.border = "solid red";
+    flag = false;
+  }
+  else {
+    flag = true;
+    inputs.style.border = "solid tomato";
+  }
+  return flag;
+}
+
+
+function Clicked() {
+
+  subjectsdiv.innerHTML = ""
+  gpacalculated.innerText = ""
+
+
+  gradebutton.innerText = "Calculate";
+  gradebutton.setAttribute("class", "Enterbutton")
+
+  SemesterNo.innerText = "Semester No: " + semesterinput.value;
+  subjects.innerText = "Total Subjects: " + subjectsinput.value;
+  let intsubjects = parseInt(subjectsinput.value);
+
+
+  for (let i = 0; i < intsubjects; i++) {
+    let div = document.createElement("div")
+    let subjectname = document.createElement("input");
+    let credithour = document.createElement("input");
+    let grade = document.createElement("input");
+
+    setAttributes(div, { "class": "gradesinput" })
+    setAttributes(subjectname, { "class": "input", "placeholder": "Enter Subject Name:" })
+    setAttributes(credithour, { "class": "input", "placeholder": "Enter Credits Hour:", "id": `Hour${i}` })
+    setAttributes(grade, { "class": "input", "placeholder": "Enter Grade:", "id": `grade${i}` })
+
+    subjectsdiv.appendChild(div)
+    div.appendChild(subjectname)
+    div.appendChild(credithour)
+    div.appendChild(grade)
+
+  }
+
+  subjectsdiv.appendChild(gradebutton)
+}
+
+
+enterbutton.addEventListener("click", (e) => {
+  let inputs = document.querySelectorAll(".input");
+  let flag=true;
+  inputs.forEach(element => {
+  if (validate(element) === false) {
+    flag=false;
+  }
+  
+  });
+  if(flag==true)
+  {
+    error.innerText="";
+    Clicked()
+  }else
+    error.innerText="InputFields are Empty" ;
+    
+});
+
+
+
+gradebutton.addEventListener("click", () => {
+  let inputs = document.querySelectorAll(".input");
+  let flag=true;
+  inputs.forEach(element => {
+  if (validate(element) === false) {
+    flag=false;
+  }
+  
+  });
+  if(flag==true)
+  {
+    error.innerText="";
+    const result = CalculateGPA(parseInt(subjectsinput.value));
+    gpacalculated.innerText = `Your GPA is: ${result}`;
+  }else
+    error.innerText="InputFields are Empty" ;
+});
+
+
+function CalculateGPA(subjects) {
+  let result = 0.0;
+  let creditHourSum = 0;
+  for (let i = 0; i < subjects; i++) {
+    let grade = document.getElementById(`grade${i}`).value;
+    let creditHour = parseInt(document.getElementById(`Hour${i}`).value);
+
+    creditHourSum = creditHourSum + creditHour
+
+    if (grade === "S")
+      result += (10 * creditHour);
+    else if (grade === "A")
+      result += (9 * creditHour);
+    else if (grade === "B")
+      result += (8 * creditHour);
+    else if (grade === "C")
+      result += (7 * creditHour);
+    else if (grade === "D")
+      result += (6 * creditHour);
+    else if (grade === "E")
+      result += (5 * creditHour);
+    else if (grade === "F")
+      result += (0 * creditHour);
+  }
+
+
+  return (result / creditHourSum).toFixed(2);
+}
+        </script>
+</body>
+</html>
+
+
+
+

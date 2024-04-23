@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Papers</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .topnav {
+        background-color: #333;
+        overflow: hidden;
+    }
+    h1{
+        margin-top: 80px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 8px;
+    }
+    label {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    label span {
+        display: inline; /* Ensure the required field indicator stays on the same line */
+        color: red;
+    }
+
+    select, input[type="text"] {
+        width: calc(100% - 16px); /* Adjust width to account for padding */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button.primarybutton {
+        background-color: #4CAF50; /* Green color */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button.primarybutton:hover {
+        background-color: #327836; /* Darker green color on hover */
+    }
+    @media only screen and (max-width: 600px) {
+        .container {
+            width: 80%;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a id="logo1" href="index.html"><img src="logo.png"> &nbsp;VIT PaperShare</a>
+        <a href="GPAcalculator.html">GPA Calculator</a>
+      </div>
+      <h1> Question Papers </h1>
+<form id="myForm" class="container" action="QuestionPaperViewer.html" method="get">
+    <div>
+        <label for="Semester">Select Semester:</label><span style="color: red;" >*</span>
+                <select id="semester" name="Semester" required class="form-control" >
+                    <option value="" disabled>Select Semester</option>
+                    <option value="1st Semester">1st Semester 
+                    </option>
+                    <option value="2nd Semester">2nd Semester
+                    </option>
+                    <option value="3rd Semester" >3rd Semester
+                    </option>
+                    <option value="4th Semester " >4th Semester 
+                    </option>
+                    <option value="5th Semester">5th Semester 
+                    </option>
+                    <option value="6th Semester">6th Semester
+                    </option>
+                    <option value="7th Semester" >7th Semester
+                    </option>
+                    <option value="8th Semester " >8th Semester 
+                    </option>
+                </select>
+    </div>
+    <div>
+        <label for="branch">Select Branch:</label><span style="color: red;" >*</span>
+                <select id="branch" name="branch" required class="form-control" >
+                    <option value="" disabled>Select branch</option>
+                    <option value="Computer Science and Engineering">Computer Science and Engineering 
+                    </option>
+                    <option value="Electrical and Electronics Engineering">Electrical and Electronics Engineering
+                    </option>
+                    <option value="Electronics and Communication Engineering">Electronics and Communication Engineering
+                    </option>
+                    <option value="Information Technology">Information Technology 
+                    </option>
+                    <option value="Mechanical Engineering">Mechanical Engineering 
+                    </option>
+                    <option value="Chemical Engineering">Chemical Engineering
+                    </option>
+                    <option value="Civil Engineering">Civil Engineering
+                    </option>
+                    <option value="Biotechnology">Biotechnology
+                    </option>
+                </select>
+    </div>
+    <div>
+        <label for="subject">Select Subject Category:</label><span style="color: red;" >*</span>
+                <select id="subject" name="subject" required class="form-control" >
+                    <option value="" disabled>Select Subject</option>
+                    <option value="Engineering Physics" >Engineering Physics
+                    </option>
+                    <option value="Complex Variables and Linear Algebra" >Complex Variables and Linear Algebra
+                    </option>
+                    <option value="Probability and Statistics" >Probability and Statistics
+                    </option>
+                    <option value="Discrete Mathematics and Graph Theory" >Discrete Mathematics and Graph Theory
+                    </option>
+                    <option value="Technical English Communication" >Technical English Communication
+                    </option>
+                    <option value="Microprocessors and Microcontrollers" >Microprocessors and Microcontrollers
+                    </option>
+                    <option value="Data Structures and Algorithms" >Data Structures and Algorithms
+                    </option>
+                    <option value="Design and Analysis of Algorithms" >Design and Analysis of Algorithms
+                    </option>
+                    <option value="Computer Architecture and Organization" >Computer Architecture and Organization
+                    </option>
+                    <option value="Software Engineering" >Software Engineering
+                    </option>
+                    <option value="Embedded Systems" >Embedded Systems
+                    </option>
+                    <option value="Micro Economics" >Micro Economics
+                    </option>
+                    <option value="Macro Economics" >Macro Economics
+                    </option>
+                    <option value="Engineering Chemistry" >Engineering Chemistry
+                    </option>
+                    <option value="Differential Equations and Transforms" >Differential Equations and Transforms
+                    </option>
+                    <option value="Calculus" >Calculus
+                    </option>
+                    <option value="BEEE" >BEEE
+                    </option>
+                </select>
+    </div>
+    <button type="submit" value="Submit" class="primarybutton">Submit</button>
+</form>
+</body>
+</html>
