@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIT papershare</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.png" type="image/x-icon">
   <style>
     body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
+    overflow: scroll;
 }
 
 .container {
+  /* position: absolute; */
     max-width: 400px;
-    margin: 100px auto;
+    margin-top: 700px ;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -61,7 +64,47 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
+.video1{
+  position: absolute;
+  margin-left: 750px;
+  margin-top: 50px;
+}
+.quest{
+  position: absolute;
+  height: 318px;
+  width: 600px;
+  margin-left: 50px;
+  margin-top: 220px;
+  border: 2px solid #45a049 ;
+  padding:20px;
+  font-size:x-large;
+  border-radius: 5px;
+  background-color: #45a049;
+  color:#f2f2f2;
+}
+.quest h2{
+  color: #f2f2f2;
+}
+.intro{
+  position:absolute;
+  margin-top: 50px;
+  margin-left: 170px;
+  font-size: 60px;
+}
+.intro p{
+  margin-top: 10px;
+  margin-left: 0px;
+  padding:20px 70px 20px 0px;
+  font-size: 20px;
+  color:rgb(90,90,90);
+  text-align: center;
+}
+.intro img{
+  margin-left:350px;
+}
+.intro span{
+  font-weight: bolder;
+}
   </style>
 </head>
 <body>
@@ -71,17 +114,93 @@ button:hover {
     <a href="Questionpaper.html">Question Paper</a>
   </div>
 
-  <div class="first">
-    <img src="logo.png">
-    <div class="container">
-      <h1>Welcome to Your Website</h1>
-      <form action="#" class="login-form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username" required>
-          <input type="password" placeholder="Password" required>
-          <button type="submit">Login</button>
-      </form>
+  <div class="intro" id="intro">
+    <img src="logo.png" height="50px" width="50px">
+    <span>VIT PaperShare</span>
+    <p>Your all-in-one academic companion designed to enhance your university experience. VIT PaperShare provides a comprehensive platform where students can access a vast collection of question papers tailored to university subjects.</p>
   </div>
+  <div class="cont">
+  <div class="quest"><h2>Question Paper</h2>
+    A University Question Paper Website is a valuable online platform designed to assist students, educators, and academic institutions in their quest for quality educational resources. This platform hosts a vast collection of past exam papers, sample questions, and study materials from various courses and disciplines offered by the university. It serves as an essential tool for enhancing the learning and examination preparation experience for both students and instructors.
+    
+    </div>
+<div class="video1">
+  <video src="video.mp4" loop autoplay muted height="700px" width="700px"></video>
+</div></div>
+
+
+    
+  <div class= 'footerMainDiv'>
+    <div class= "footerPrimaryDiv">
+      <div class= 'footerPrimaryLogo'>
+        <!-- <h3 class="style1 logo"></h3> -->
+        <img src="logo.png" width="80px" height="80px">
+        <h3 class='style2 moto'>
+          We Live to share Papers
+        </h3>
+      </div>
+
+      <div class= 'footerPrimaryCompany'>
+        <h3 class='style1 companytitle'>
+          Links
+        </h3><br>
+        <p>
+          <a href="#intro" style="color:#ffffff99;font-weight: bold;">VIT PaperShare</a></br><br>
+          <a href="Questionpaper.html" style="color:#ffffff99 ;font-weight: bold;">Question Papers</a><br><br>
+          <a href="GPAcalculator.html" style="color:#ffffff99; font-weight: bold;">GPA Calculator</a>
+        </p>
+        <!-- <Link href="/aboutus" class= moto}>
+          About Us
+        </Link>
+
+        <Link href="/topdeals" class= moto}>
+          Top Deals
+        </Link>
+
+        <Link href="/destinations" class= moto}>
+          Destinations
+        </Link> -->
+      </div>
+
+      <div class= 'footerPrimaryContact'>
+        <h3 class= 'style1'>Contact Us</h3>
+        <p class= 'moto'>
+          <a >VITPaperShare@gmail.com</a>
+        </p>
+        <p class= 'moto'>+91 9798385078</p>
+        <p class= 'moto'>VIT University</p>
+      </div>
+
+      <div class= 'footerPrimaryStayUptodDate'>
+        <h3 class= 'style1'>GET PAPERS</h3>
+        <p class= 'moto'>Enter your email :</p>
+        <input
+          type="email"
+          placeholder="Email"
+          class= 'newletterEmailInput'
+        />
+      </div>
+    </div>
+    <div class= 'footerSecandaryDiv'>
+      <a class= 'footerSecandaryImages' href="instagram.com">
+        <FaInstagram
+          style= 'color:white;' 
+          class= 'footerIcons'
+        />
+      </a>
+      <a class= footerSecandaryImages} href="linkedin.com">
+        <CiLinkedin
+          style= 'color:white;'
+          class= 'footerIcons'
+        />
+      </a>
+      <a class= 'footerSecandaryImages' href="facebook.com">
+        <CiFacebook
+          style='color: white;'
+          class= 'footerIcons'
+        />
+      </a>
+    </div>
   </div>
 </body>
 </html>
